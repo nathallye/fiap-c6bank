@@ -1,4 +1,4 @@
-import React from "react";
+import React,  { useState } from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
@@ -7,7 +7,6 @@ const BalanceContainer = styled.div`
   
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
   width: 100%;
   height: 100px;
@@ -16,21 +15,27 @@ const BalanceContainer = styled.div`
   font-family: sans-serif;
   color: #f8f8f8;
 
-  strong {
-    font-size: 25px;
+  & > div > strong {
+    font-size: 1.3rem;
+    margin-right: 10%;
   }
 `
 
 export default function Balance() {
+
+  const [show, setShow] = useState<boolean>(false);
+
   return (
     <BalanceContainer>
-      <div>Balance</div>
+      <div>Saldo</div>
       <div>
-        <span>R$ </span>
-        <strong>190.000,00 </strong>
-        <Link href="#">
-          <a>Mostrar</a>
-        </Link>
+        {show ?
+          <strong>{ new Intl.NumberFormat("pt-br", {style: "currency", currency: "BRL"}).format(190000)}</strong>
+        : 
+          <strong>R$ ******,**</strong>
+        }
+        
+        <button onClick={() => setShow(!show)}>{show ? "Ocultar" : "Mostrar"}</button>
       </div>
     </BalanceContainer>
   )

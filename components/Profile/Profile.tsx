@@ -10,7 +10,7 @@ const ProfileContainer = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 450px;
+  padding-bottom: 20px;
 
   font-family: sans-serif;
   color: #f8f8f8;
@@ -23,6 +23,15 @@ const AvatarContainer = styled.div`
 
   margin-bottom: 20px;
   padding: 20px;
+
+  h2, h3 {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  h2 {
+    margin-top: 10%;
+  }
 `
 
 export default function Profile() {
