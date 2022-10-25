@@ -11,29 +11,42 @@ const ExtractDataContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  div {
-    display: flex;
+  width: 100%;
+  padding-left: 25px;
 
-    p {
-      display: flex;
-    }
+  table > thead > tr > th {
+    font-weight: 100;
+    color: #868383;
   }
-
 `
 
-export default function ExtractData(props: ExtractDataProps) {
+export default function ExtractData(props: ExtractDataProps) {  
   return (
-    <ExtractDataContainer>Dados do Array
-      {props.db.map((item, index) => {
-        return (
-          <div key={item.id}>
-            <p>{item.date}</p>
-            <p>{item.description}</p>
-            <p>{item.amount}</p>
-            <p>{item.type}</p>
-          </div>
-        );
-      })}
+    <ExtractDataContainer>
+      <table>
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Data</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.db.map((item, index) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.type}</td>
+                <td>{item.description}</td>
+                <td>{item.date}</td>
+                <td>R$ {item.amount}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      
     </ExtractDataContainer>
   )
 }

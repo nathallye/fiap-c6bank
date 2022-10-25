@@ -10,7 +10,11 @@ const ExtractContainer = styled.div`
   min-height: 100vh;
 
   section {
-    padding-left: 25px;
+    width: 100%;
+    
+    h1 {
+      padding-left: 25px;
+    }
   }
 `
 
